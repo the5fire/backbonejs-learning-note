@@ -1,0 +1,13 @@
+问题反馈
+====================================
+
+前几天和前端的同事聊backbonejs的书，同事说看过我写的那本backbonejs电子书，但是里面有些地方（mvc）不是很明白，是后来看 `backbone-fundamentals <https://github.com/addyosmani/backbone-fundamentals>`_ 的翻译版: `翻译版 <http://feliving.github.io/developing-backbone-applications/backup/>`_ 才明白的。
+
+这本书的英文原版我也看了，在博客上也做了推荐，翻译版这几天也在看，主要是想看看别人怎么翻译的。不过如果不是技术水平和英文水平都比较高的人，翻译过来的东西总是读起来很生硬，我自己在翻译Django的部分文档时也有这个感觉，完全是字面翻译的话生硬无比，而意译的话又怕不能完全表达原文的意思。但意译的东西读起来是比较通畅的，等于是你理解了这个东西，然后用自己的话描述，这样必然就符合中文思维了。
+
+说了翻译的事情，现在我还是比较推荐大家看英文原版。
+
+其实这篇文章的目的是让大家踊跃发表意见，主要针对第一版中不足之处，还有那些东西是你没弄明白的。
+
+来吧，参与开源，欢迎提交issues： `创建问题 <https://github.com/the5fire/backbonejs-learning-note/issues/new>`_
+
