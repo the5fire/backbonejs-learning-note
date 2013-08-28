@@ -28,3 +28,8 @@ Backbone.js入门教程第二版
 反馈
 ------------------------
 看这里   `反馈 <反馈.rst>`_
+
+
+国内哪些网站在用backbonejs
+--------------------------
+`sites-baseon-backbonejs <sites-baseon-backbonejs.rst>`_
