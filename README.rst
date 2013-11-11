@@ -23,7 +23,6 @@ Backbone.js入门教程第二版
     .. image:: https://img.alipay.com/sys/personalprod/style/mc/btn-index.png
           :target: http://me.alipay.com/the5fire
 
-    赞助有惊喜哦。
 
 反馈
 ------------------------
@@ -38,4 +37,5 @@ Backbone.js入门教程第二版
 目录
 --------------------------
 00  `前言 <chapters/00-preface.rst>`_
+01  `Hello Backbonejs <chapters/01-hello-backbonejs.rst>`_
 

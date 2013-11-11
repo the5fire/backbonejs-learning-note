@@ -28,3 +28,7 @@
 大概就闲扯这么多，总之主要的目的是填上一版的一些坑，然后或许会留下新的坑。
 
 :) happy coding
+
+**导航**
+
+* 下一章： `01 hello backbonejs <01-hello-backbonejs.rst>`_
