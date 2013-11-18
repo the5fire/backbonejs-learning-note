@@ -53,9 +53,10 @@ Backbone.js入门教程第二版
 * 14  前后端实战演练：Web聊天室-服务端开发
 * 15  m.the5fire.com案例介绍
 * 15  m.the5fire.com设计实现
-* 16  补充异常处理
-* 17  定制Backbonejs
-* 18  再次总结的说
-* 19  Backbonejs相关资源
+* 16  引入requirejs
+* 17  补充异常处理
+* 18  定制Backbonejs
+* 19  再次总结的说
+* 20  Backbonejs相关资源
 
-``暂定目录如上``
+``暂定目录如上 , 压力相当的山大``
