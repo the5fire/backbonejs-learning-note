@@ -34,7 +34,7 @@
                     events: {
                             "click #check":  "checkIn",   //事件绑定，绑定Dom中id为check的元素
                     },
-                    checkIn: function () {
+                    checkIn: function (event) {
                             var world_name = prompt("请问，您是哪星人?");
                             if(world_name == "") world_name = '未知';
                             var world = new World({ name: world_name });

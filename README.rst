@@ -38,4 +38,24 @@ Backbone.js入门教程第二版
 --------------------------
 * 00  `前言 <chapters/00-preface.rst>`_
 * 01  `Hello Backbonejs <chapters/01-hello-backbonejs.rst>`_
+* 02  `Backbonejs中的Model实践 <chapter/02-backbonejs-model.rst>`_
+* 03  Backbonejs中的Collections实践
+* 04  Backbonejs中的Router实践
+* 05  Backbonejs中的View实践
+* 06  实战演练：todos分析（一）
+* 07  实战演练：todos分析（二）View的应用
+* 08  实战演练：todos分析（三）总结
+* 09  后端环境搭建：Django的使用
+* 10  实战演练：扩展todos到Server端（backbonejs+Django）
+* 11  前后端实战演练：Web聊天室-功能分析
+* 12  前后端实战演练：Web聊天室-详细设计
+* 13  前后端实战演练：Web聊天室-前端开发
+* 14  前后端实战演练：Web聊天室-服务端开发
+* 15  m.the5fire.com案例介绍
+* 15  m.the5fire.com设计实现
+* 16  补充异常处理
+* 17  定制Backbonejs
+* 18  再次总结的说
+* 19  Backbonejs相关资源
 
+``暂定目录如上``

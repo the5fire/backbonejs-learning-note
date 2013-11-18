@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>the5fire-backbone-model</title>
+</head>
+<body>
+    <script src="http://the5fireblog.b0.upaiyun.com/staticfile/jquery-1.10.2.js"></script>
+    <script src="http://the5fireblog.b0.upaiyun.com/staticfile/underscore.js"></script>
+    <script src="http://the5fireblog.b0.upaiyun.com/staticfile/backbone.js"></script>
+    <script src="http://the5fireblog.b0.upaiyun.com/staticfile/backbone.localStorage.js"></script>
+    <script>
+    (function ($) {
+     /*
+        // 1、最简单的一个对象
+        Man = Backbone.Model.extend({
+        initialize: function(){
+            alert('Hey, you create me!');
+        }
+        });
+        var man = new Man;
+
+
+        //2、对象赋值的两种方法
+        //   第一种，直接定义，设置默认值。
+        Man = Backbone.Model.extend({
+            initialize: function(){
+                alert('Hey, you create me!');
+            },
+            defaults: {
+                name:'张三',
+                age: '38'
+            }
+        });
+
+        var man = new Man;
+        alert(man.get('name'));
+
+        //    第二种，赋值时定义
+        Man = Backbone.Model.extend({
+            initialize: function(){
+                alert('Hey, you create me!');
+            }
+        });
+        var man = new Man;
+        man.set({name:'the5fire',age:'10'});
+        alert(man.get('name'));
+
+
+        //3、对象中的方法
+        Man = Backbone.Model.extend({
+            initialize: function(){
+                alert('Hey, you create me!');
+            },
+            defaults: {
+                name:'张三',
+                age: '38'
+            },
+            aboutMe: function(){
+                return '我叫' + this.get('name') + ',今年' + this.get('age') + '岁';
+            }
+        });
+        var man = new Man;
+        alert(man.aboutMe());
+
+
+        //4、监听对象中属性的变化
+        Man = Backbone.Model.extend({
+            initialize: function(){
+                alert('Hey, you create me!');
+                //初始化时绑定监听
+                this.bind("change:name",function(){
+                    var name = this.get("name");
+                    alert("你改变了name属性为：" + name);
+                });
+            },
+            defaults: {
+                name:'张三',
+                age: '38'
+            },
+            aboutMe: function(){
+                return '我叫' + this.get('name') + ',今年' + this.get('age') + '岁';
+            }
+        });
+        var man = new Man;
+        man.set({name:'the5fire'});  //触发绑定的change事件，alert。
+        man.set({name:'the5fire1'});  //触发绑定的change事件，alert。
+
+
+
+        // 5、为对象添加验证规则，以及错误提示
+        Man = Backbone.Model.extend({
+            initialize: function(){
+                alert('Hey, you create me!');
+                //初始化时绑定监听
+                this.bind("change:name",function(){
+                    var name = this.get("name");
+                    alert("你改变了name属性为：" + name);
+                });
+                this.bind("invalid",function(model, error){
+                    alert(error);
+                });
+            },
+
+            defaults: {
+                name:'张三',
+                age: '38'
+            },
+
+            validate:function(attributes, options){
+                if(attributes.name == '') {
+                    return "name不能为空！";
+                }
+            },
+
+            aboutMe: function(){
+                return '我叫' + this.get('name') + ',今年' + this.get('age') + '岁';
+            }
+        });
+
+        var man = new Man;
+//        这种方式添加错误处理也行
+//        man.on('invalid', function(model, error){
+//                alert(error);
+//        });
+        man.set({name:''});
+        //man.set({name:''}, {'validate':true});  //手动触发验证, set时会触发
+        man.save(); //save时触发验证。根据验证规则，弹出错误提示。
+        */
+
+
+        // 6、对象的获取和保存，需要服务器端支持才能测试
+        Man = Backbone.Model.extend({
+            url:'/man/',
+            initialize: function(){
+                alert('Hey, you create me!');
+                //初始化时绑定监听
+                this.bind("change:name",function(){
+                    var name = this.get("name");
+                    alert("你改变了name属性为：" + name);
+                });
+                this.bind("invalid",function(model,error){
+                    alert(error);
+                });
+            },
+            defaults: {
+                name:'张三',
+                age: '38'
+            },
+            validate:function(attributes){
+                if(attributes.name == '') {
+                    return "name不能为空！";
+                }
+            },
+            aboutMe: function(){
+                return '我叫' + this.get('name') + ',今年' + this.get('age') + '岁';
+            }
+        });
+        var man = new Man;;
+        man.set({name:'the5fire'});
+        man.save();  //会发送POST到模型对应的url，数据格式为json{"name":"the5fire","age":38}
+        //然后接着就是从服务器端获取数据使用方法fetch([options])
+        var man1 = new Man;
+        //第一种情况，如果直接使用fetch方法，那么他会发送get请求到你model的url中，
+        //你在服务器端可以通过判断是get还是post来进行对应的操作。
+        man1.fetch();
+        //第二种情况，在fetch中加入参数，如下：
+        man1.fetch({url:'/man/'});
+        //这样，就会发送get请求到/getmans/这个url中，
+        //服务器返回的结果样式应该是对应的json格式数据，同save时POST过去的格式。
+
+        //不过接受服务器端返回的数据方法是这样的：
+        man1.fetch({url:'/man/',success:function(model,response){
+            alert('get from server success');
+            //model为获取到的数据
+            alert(model.get('name'));
+            },error:function(){
+            //当返回格式不正确或者是非json数据时，会执行此方法
+            alert('error');
+        }});
+    })(jQuery);
+    </script>
+</body>
+</html>
