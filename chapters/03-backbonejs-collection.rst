@@ -95,10 +95,10 @@
 绑定的步骤要在fetch之前进行。
 
 
-完整代码可以在 `code <code>`_ 中找到, 服务器端的代码后面会介绍。
+完整代码可以在 `code <../code>`_ 中找到, 服务器端的代码后面会介绍。
 
 
 **导航**
 
-* 上一章 02 `Backbone中Model实践 <chapters/02-backbonejs-model.rst>`_
+* 上一章 02 `Backbone中Model实践 <02-backbonejs-model.rst>`_
 * 下一章 04  Backbonejs中的Router实践
