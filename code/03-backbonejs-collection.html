@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>the5fire-backbone-collection</title>
+</head>
+<body>
+    <script src="http://the5fireblog.b0.upaiyun.com/staticfile/jquery-1.10.2.js"></script>
+    <script src="http://the5fireblog.b0.upaiyun.com/staticfile/underscore.js"></script>
+    <script src="http://the5fireblog.b0.upaiyun.com/staticfile/backbone.js"></script>
+    <script>
+    (function ($) {
+        //collection是一个简单的models的有序集合
+        //1、一个简单的例子
+
+        Book = Backbone.Model.extend({
+            defaults : {    // 感谢网友蓝色动力指正改为defaults
+                title:'default'
+            },
+            initialize: function(){
+                //alert('Hey, you create me!');
+            }
+        });
+        BookShelf = Backbone.Collection.extend({
+            model : Book
+        });
+
+        var book1 = new Book({title : 'book1'});
+        var book2 = new Book({title : 'book2'});
+        var book3 = new Book({title : 'book3'});
+
+        //var bookShelf = new BookShelf([book1, book2, book3]); //注意这里面是数组,或者使用add
+        var bookShelf = new BookShelf;
+        bookShelf.add(book1);
+        bookShelf.add(book2);
+        bookShelf.add(book3);
+        bookShelf.remove(book3);
+
+        //基于underscore这个js库，还可以使用each的方法获取collection中的数据
+        bookShelf.each(function(book){
+            alert(book.get('title'));
+        });
+
+        //2、使用fetch从服务器端获取数据,使用reset渲染
+        showAllBooks = function(){
+            bookShelf.each(function(book){
+                //将book数据渲染到页面。
+                document.writeln(book.get('title'));
+            });
+        }
+        bookShelf.bind('reset', showAllBooks);
+        bookShelf.url = '/books/'; //注意这里
+        bookShelf.fetch({
+            reset: true, 
+            success:function(collection,response, options){
+                collection.each(function(book){
+                    alert(book.get('title'));
+                });
+            },error:function(collection, response, options){
+                alert('error');
+            }
+        });
+        //上述代码仅仅均为可正常执行的代码，不过关于服务器端的实例在后面会有。
+        })(jQuery);
+    </script>
+    </body>
+    </html>
