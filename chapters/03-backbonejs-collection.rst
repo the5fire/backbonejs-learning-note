@@ -94,6 +94,24 @@
 
 绑定的步骤要在fetch之前进行。
 
+4、发送数据到Server端
+-----------------------------
+
+创建数据，其实就是调用collection的create方法，POST对应的Model对象（json数据）到配置好的url上。之后会返回一个model的实力，如下面代码中的onebook。
+
+.. code:: javascript
+
+    var NewBooks = Backbone.Collection.extend({
+        model: Book,
+        url: '/books/'
+    });
+
+    var books = new NewBooks;
+
+    var onebook = books.create({
+        title: "I'm coming",
+    });
+
 
 完整代码可以在 `code <../code>`_ 中找到, 服务器端的代码后面会介绍。
 

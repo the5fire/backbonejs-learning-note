@@ -20,10 +20,16 @@ class index:
 class Books:
     def GET(self):
         result = []
-        for i in range(10):
+        for i in range(5):
             result.append({"title": "book%s" % i})
         #return ''  #raise error
         return json.dumps(result)
+
+    def POST(self):
+        data = web.data()
+        print data
+        return "success"
+
 
 if __name__ == "__main__":
     app = web.application(urls, globals())

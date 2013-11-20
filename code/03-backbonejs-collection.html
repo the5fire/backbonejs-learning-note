@@ -59,6 +59,18 @@
                 alert('error');
             }
         });
+
+        //3. 创建collection推送到server端
+        var NewBooks = Backbone.Collection.extend({
+            model: Book,
+            url: '/books/'
+        });
+
+        var books = new NewBooks;
+
+        var onebook = books.create({
+            title: "I'm coming",
+        });
         //上述代码仅仅均为可正常执行的代码，不过关于服务器端的实例在后面会有。
         })(jQuery);
     </script>
