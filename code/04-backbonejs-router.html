@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>the5fire-backbone-router</title>
+    <script src="http://the5fireblog.b0.upaiyun.com/staticfile/jquery-1.10.2.js"></script>
+    <script src="http://the5fireblog.b0.upaiyun.com/staticfile/underscore.js"></script>
+    <script src="http://the5fireblog.b0.upaiyun.com/staticfile/backbone.js"></script>
+</head>
+    <body>
+        <a href="#/default/">default</a>
+        <a href="#/posts/120">Post 120</a>
+        <a href="#/download/user/images/hey.gif">download gif</a>
+        <a href="#/dashboard/graph">Load Route/Action View</a>
+        <br/>
+        <a href="#/manual">Manual</a>
+<script>
+    (function ($) {
+        //从上面已经可以看到匹配#标签之后内容的方法，有两种：一种是用“:”来把#后面的对应的位置作为参数；还有一种是“*”，它可以匹配所有的url，下面再来演练一下。
+        var AppRouter = Backbone.Router.extend({
+            routes: {
+                "posts/:id" : "getPost",
+                "download/*path": "downloadFile",  //对应的链接为<a href="#/download/user/images/hey.gif">download gif</a>
+                ":route/:action": "loadView",      //对应的链接为<a href="#/dashboard/graph">Load Route/Action View</a>
+                "manual": "manual",
+                "*actions": "defaultRoute",
+            },
+            getPost: function(id) {
+                alert(id);
+            },
+            defaultRoute : function(actions){
+                alert(actions);
+            },
+            downloadFile: function( path ){ 
+                alert(path); // user/images/hey.gif 
+            },
+            loadView: function( route, action ){ 
+                alert(route + "_" + action); // dashboard_graph 
+            },
+            manual: function() {
+                alert("call manual");
+                app_router.navigate("/posts/" + 404, {trigger: true, replace: true});
+            }
+        });
+        
+        var app_router = new AppRouter;
+        
+        Backbone.history.start();
+        
+    })(jQuery);
+    </script>
+    </body>
+</html>
