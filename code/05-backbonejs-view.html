@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>the5fire-backbone-view</title>
+</head>
+<body>
+    <div id="search_container"></div>
+
+
+    <!--<label><%= search_label %></label>-->
+    <!--<input type="text" id="search_input" />-->
+    <!--<input type="button" id="search_button" value="Search" />-->
+
+<script type="text/template" id="search_template">
+<ul>
+    <% _.each(labels, function(name) { %> 
+        <% if(name != "label2") {%>
+        <li><%= name %></li> 
+        <% } %>
+    <% }); %>
+</ul>
+</script>
+<script src="http://the5fireblog.b0.upaiyun.com/staticfile/jquery-1.10.2.js"></script>
+<script src="http://the5fireblog.b0.upaiyun.com/staticfile/underscore.js"></script>
+<script src="http://the5fireblog.b0.upaiyun.com/staticfile/backbone.js"></script>
+<script>
+(function ($) {
+    //此处添加下面的试验代码
+    //1、一个简单的view
+ //   SearchView = Backbone.View.extend({
+ //       initialize: function(){
+ //           alert('init a SearchView');
+ //       }
+ //   });
+ //   var searchView = new SearchView();
+//    //2、 el属性
+//    SearchView = Backbone.View.extend({
+//        initialize: function(){
+//            
+//        },
+//        render: function(context) {
+//            //使用underscore这个库，来编译模板
+//            var template = _.template($("#search_template").html(),context);
+//            //加载模板到对应的el属性中
+//            $(this.el).html(template);
+//        }
+//    });
+//    var searchView = new SearchView({el: $("#search_container")});
+//    searchView.render({search_label: "搜索的label"});  //这个reander的方法可以放到view的构造函数中
+//
+//    //3、再来看对DOM中元素事件的绑定，很简单
+//    SearchView = Backbone.View.extend({
+//        el: "#search_container",
+//        initialize: function(){
+//            this.render({search_label: "搜索按钮"});
+//        },
+//        render: function(context) {
+//            //使用underscore这个库，来编译模板
+//            var template = _.template($("#search_template").html(),context);
+//            //加载模板到对应的el属性中
+//            $(this.el).html(template);
+//        },
+//
+//        events:{  //就是在这里绑定的
+//            'click input[type=button]' : 'doSearch'  //定义类型为button的input标签的点击事件，触发函数doSearch
+//        },
+//
+//        doSearch: function(event){
+//            alert("search for " + $("#search_input").val());
+//        }
+//    });
+//    var searchView = new SearchView();
+//
+    //4、view中的模板
+    SearchView = Backbone.View.extend({ 
+        el: "#search_container",
+        initialize: function(){ 
+            var labels = ['label1', 'label2', 'label3'];
+            this.render({labels: labels}); 
+        }, 
+        render: function(context) { 
+            //使用underscore这个库，来编译模板 
+            var template = _.template($("#search_template").html(), context); 
+            //加载模板到对应的el属性中 
+            $(this.el).html(template);
+        },
+
+    });
+
+    var searchView = new SearchView();
+})(jQuery);
+</script>
+</body>
+</html>
