@@ -41,7 +41,7 @@ Backbone.js入门教程第二版
 * 02  `Backbonejs中的Model实践 <chapters/02-backbonejs-model.rst>`_
 * 03  `Backbonejs中的Collections实践 <chapters/03-backbonejs-collection.rst>`_
 * 04  `Backbonejs中的Router实践 <chapters/04-backbonejs-router.rst>`_
-* 05  Backbonejs中的View实践
+* 05  `Backbonejs中的View实践 <chapters/05-backbonejs-view.rst>`_
 * 06  实战演练：todos分析（一）
 * 07  实战演练：todos分析（二）View的应用
 * 08  实战演练：todos分析（三）总结
