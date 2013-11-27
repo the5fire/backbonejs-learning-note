@@ -85,6 +85,7 @@ clone下来之后可以在example中找到todos文件夹，文件结构如下：
 这段代码是很好理解的，不过我依然是画蛇添足的加上了一些注释。这个Todo显然就是对应页面上的每一个任务条目。那么显然应该有一个collection来统治（管理）所有的任务，所以再来看collection：
 
 .. code:: javascript
+
     /**
     *Todo的一个集合，数据通过localStorage存储在本地。
     **/
