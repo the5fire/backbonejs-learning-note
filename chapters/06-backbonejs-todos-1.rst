@@ -8,6 +8,8 @@
 
 话虽如此，不同于网络上的绝大部分的分析的是，the5fire除了分析这个，还是对其进行了扩充，另外在后面也会有真实的案例。但我也是从这些案例的代码中汲取的营养。
 
+补充一下，新版的todos代码相较于之前简直清晰太多，完全可以当做一个前端的范本来学习、模仿。
+
 
 6.2 获取代码
 --------------------
@@ -31,7 +33,7 @@ clone下来之后可以在example中找到todos文件夹，文件结构如下：
 ----------------------
 首先来分析下页面上有哪些功能:
 
-.. image:: http://www.the5fire.com/wp-content/uploads/2012/03/todos.png
+.. image:: http://the5fireblog.b0.upaiyun.com/staticfile/todos.png
 
 从这个界面我们可以总结出来,下面这些功能::
 
@@ -59,27 +61,15 @@ clone下来之后可以在example中找到todos文件夹，文件结构如下：
     var Todo = Backbone.Model.extend({
         // 设置默认的属性
         defaults: {
-            content: "empty todo...",
+            title: "empty todo...",
+            order: Todos.nextOrder(),
             done: false
         },
 
-        //确保每一个content都不为空
-        initialize: function() {
-            if (!this.get("content")) {
-                this.set({"content": this.defaults.content});
-            }
-        },
-
-        // 将一个任务的完成状态置为逆状态
+        // 设置任务完成状态
         toggle: function() {
             this.save({done: !this.get("done")});
-        },
-
-        //从localStorage中删除一个条目
-        clear: function() {
-            this.destroy();
         }
-
     });
 
 这段代码是很好理解的，不过我依然是画蛇添足的加上了一些注释。这个Todo显然就是对应页面上的每一个任务条目。那么显然应该有一个collection来统治（管理）所有的任务，所以再来看collection：
