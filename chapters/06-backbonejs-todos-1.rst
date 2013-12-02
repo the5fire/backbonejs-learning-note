@@ -125,4 +125,4 @@ collection的主要功能有以下几个：::
 **导航**
 
 * 上一章 05 `Backbonejs中的View实践 <05-backbonejs-view.rst>`_
-* 下一章 07 实战演练：todos分析（二）View的应用
+* 下一章 07 `实战演练：todos分析（二）View的应用 <07-backbonejs-todos-2.rst>`_

@@ -239,4 +239,4 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
 **导航**
 
 * 上一章 01  `Hello Backbonejs <01-hello-backbonejs.rst>`_
-* 下一章 03  Backbonejs中的Collections实践
+* 下一章 03  `Backbonejs中的Collections实践 <03-backbonejs-collection.rst>`_

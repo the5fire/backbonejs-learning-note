@@ -237,4 +237,4 @@ TodoView是和Model一对一的关系，在页面上一个View也就展示为一
 **导航**
 
 * 上一章 06 `实战演练：todos分析（一） <06-backbonejs-todos-1.rst>`_
-* 下一章 08 实战演练：todos分析（三）总结
+* 下一章 08 `实战演练：todos分析（三）总结 <08-backbonejs-todos-3.rst>`_

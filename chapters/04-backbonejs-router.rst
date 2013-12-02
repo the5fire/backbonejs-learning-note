@@ -129,4 +129,4 @@
 **导航**
 
 * 上一章 03  `Backbonejs中的Collections实践 <03-backbonejs-collection.rst>`_
-* 下一章 05 Backbonejs中的View实践
+* 下一章 05 `Backbonejs中的View实践 <05-backbonejs-view.rst>`_
