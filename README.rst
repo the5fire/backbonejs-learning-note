@@ -45,7 +45,7 @@ Backbone.js入门教程第二版
 * 06  `实战演练：todos分析（一） <chapters/06-backbonejs-todos-1.rst>`_
 * 07  `实战演练：todos分析（二）View的应用 <chapters/07-backbonejs-todos-2.rst>`_
 * 08  `实战演练：todos分析（三）总结 <chapters/08-backbonejs-todos-3.rst>`_
-* 09  后端环境搭建：web.py的使用
+* 09  `后端环境搭建：web.py的使用 <chapter/09-intro-webpy.rst>`_
 * 10  实战演练：扩展todos到Server端（backbonejs+webpy）
 * 11  前后端实战演练：Web聊天室-功能分析
 * 12  前后端实战演练：Web聊天室-详细设计
