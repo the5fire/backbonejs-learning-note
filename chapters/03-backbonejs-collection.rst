@@ -97,7 +97,7 @@
 3.4、发送数据到Server端
 -----------------------------
 
-创建数据，其实就是调用collection的create方法，POST对应的Model对象（json数据）到配置好的url上。之后会返回一个model的实力，如下面代码中的onebook。
+创建数据，其实就是调用collection的create方法，POST对应的Model对象（json数据）到配置好的url上。之后会返回一个model的实例，如下面代码中的onebook。
 
 .. code:: javascript
 
