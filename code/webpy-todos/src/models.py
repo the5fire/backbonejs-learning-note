@@ -13,8 +13,12 @@ class Todos(object):
         return db.select('todos')
 
     @staticmethod
-    def insert(**kwargs):
-        db.insert('todos', title=text)
+    def create(**kwargs):
+        db.insert('todos', **kwargs)
+
+    @staticmethod
+    def update(**kwargs):
+        db.update('todos', where="id=$id", vars={"id": kwargs.pop('id')}, **kwargs)
 
     @staticmethod
     def delete(id):
