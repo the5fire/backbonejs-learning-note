@@ -1,54 +1,47 @@
 #coding:utf-8
 import json
-import sqlite3
 
 import web
+from models import Todos
         
 urls = (
     '/', 'index',  #返回首页
     '/todo/(\d+)/', 'todo',  # 处理前端todo的请求,对指定记录进行操作
-    '/todo/', 'todos',  # 处理前端todo的请求，返回所有数据
+    '/todos/', 'todos',  # 处理前端todo的请求，返回所有数据
 )
 
 app = web.application(urls, globals())
-conn = sqlite3.connect('todos.db')
-sql_query = 'SELECT id, title, _order, done FROM todos '
+
+render = web.template.render('')
 
 # 首页
 class index:
     def GET(self):
-        return 'Hello, World!'
+        return render.index()
 
 class todo:
     def GET(self, todo_id=None):
-        cur = conn.cursor()
-        cur.execute(sql_query + ' where id=?', (todo_id, ))
-        todo = cur.fetchone()
-        cur.close()
-        # 先用这种比较傻的方式
-        context = {
-            "id": todo[0],
-            "title": todo[1],
-            "order": todo[2],
-            "done": todo[3],
-        }
-        return json.dumps(context)
+        result = None
+        itertodo = Todos.get_by_id(id=todo_id)
+        for todo in itertodo:
+            result = {
+                "title": todo.title,
+                "order": todo._order,
+                "done": todo.done == 1,
+            }
+        return json.dumps(result)
 
 class todos:
     def GET(self):
-        result = []
-        cur = conn.cursor()
-        cur.execute(sql_query)
-        todos = cur.fetchall()
-        cur.close()
-        for todo in todos:
-            result.append({
-                "id": todo[0],
-                "title": todo[1],
-                "order": todo[2],
-                "done": todo[3],
+        todos = []
+        itertodos = Todos.get_all()
+        for todo in itertodos:
+            todos.append({
+                "title": todo.title,
+                "order": todo._order,
+                "done": todo.done == 1,
             })
-        return json.dumps(result)
+        return json.dumps(todos)
 
 if __name__ == "__main__":
     app.run()
