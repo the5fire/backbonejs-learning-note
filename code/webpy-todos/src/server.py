@@ -23,9 +23,7 @@ class index:
 class todo:
     def GET(self, todo_id=None):
         result = None
-        itertodo = Todos.get_by_id(id=todo_id)
-        # 参考：https://groups.google.com/forum/#!msg/webpy/PP81l8C5kbQ/90Hgx3HUqG0J
-        todo = next(iter(itertodo), None)
+        todo = Todos.get_by_id(id=todo_id)
         result = {
             "id": todo.id,
             "title": todo.title,

@@ -6,7 +6,9 @@ db = web.database(dbn='sqlite', db="todos.db")
 class Todos(object):
     @staticmethod
     def get_by_id(id):
-        return db.select('todos', where="id=$id", vars=locals())
+        itertodo = db.select('todos', where="id=$id", vars=locals())
+        # 参考：https://groups.google.com/forum/#!msg/webpy/PP81l8C5kbQ/90Hgx3HUqG0J
+        return next(iter(itertodo), None)
 
     @staticmethod
     def get_all():
