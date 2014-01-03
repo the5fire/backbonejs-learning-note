@@ -60,3 +60,5 @@ Backbone.js入门教程第二版
 * 20  Backbonejs相关资源
 
 ``暂定目录如上 , 压力相当的山大``
+
+Backbonejs交流群：308466740
