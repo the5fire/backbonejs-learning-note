@@ -146,4 +146,4 @@ sqlite的介绍就不多说了，感兴趣的同学想必已经在查sqlite相�
 **导航**
 
 * 上一章 08 `实战演练：todos分析（三）总结 <08-backbonejs-todos-3.rst>`_
-* 下一章 10  实战演练：扩展todos到Server端（backbonejs+webpy）
+* 下一章 10  `实战演练：扩展todos到Server端（backbonejs+webpy） <10-expand-todos-with-server.rst>`_
