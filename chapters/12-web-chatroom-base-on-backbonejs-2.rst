@@ -20,13 +20,13 @@
         id
         name
         created_time
-        owner
+        owner_id
     消息(message):
         id
         content
-        top_id
+        topic_id
         user_id
-        reply_to
+        created_time
 
 12.2 接口设计
 --------------------
