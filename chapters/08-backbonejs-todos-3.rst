@@ -36,9 +36,13 @@
         Todos.fetch();
     },
 
-注意其中的Todos.fetch()方法，前面说过，这个项目是在客户端保存数据，所以使用fetch方法并不会发送请求到服务器。另外在前面关于collection的单独讲解中我们也知道了collection中调用fetch方法之后就会触发reset这个方法。所以现在流程走向reset——>addAll这个方法。
+注意其中的Todos.fetch()方法，前面说过，这个项目是在客户端保存数据，所以使用fetch方法并不会发送请求到服务器。另外在前面关于collection的单独讲解中我们也介绍了fetch执行完成之后，会调用set（默认）或者reset（需要手动设置 ``{reset: true}`` ）。所以在没有指明fetch的reset参数的情况下，backbonejs的Collection中的set方法会遍历Todos的内容并且调用add方法。
 
-来看addAll这个方法：
+在initialize中我们绑定了add到addOne上，因此在fetch的时候会backbonejs会帮我们调用addOne（其实也是在collection的set方法中）。和collection中的set类似的，我们可以自定义reset方法，自行来处理fetch到得数据，但是需要在fetch时手动添加reset参数。
+
+PS: 感谢网友指正
+
+这里先来看下我们绑定到reset上的addAll方法是如何处理fetch过来的数据的:
 
 .. code:: javascript
 
@@ -53,9 +57,9 @@
         Todos.each(this.addOne, this);
     },
 
-在addAll中调用addOne方法，关于Todos.each很好理解，就是语法糖（简化的for循环），到此，加载页面的整个流程也就完成了。关于addOne方法的细节下面介绍。
+在addAll中调用addOne方法，关于Todos.each很好理解，就是语法糖（简化的for循环）。关于addOne方法的细节下面介绍。
 
-然后再来看添加任务的流程，一个良好的代码命名风格始终是让人满心欢喜的。因为很显然，添加一个任务，自然就是addOne,其实你看events中的绑定也能知道，先看一下绑定：
+然后再来看添加任务的流程，一个良好的代码命名风格始终是让人满心欢喜的。因此很显然，添加一个任务，自然就是addOne,其实你看events中的绑定也能知道，先看一下绑定：
 
 .. code:: javascript
 

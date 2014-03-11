@@ -68,7 +68,7 @@
 3.3、reset方法
 -----------------------------
 
-这个方法的时候是要和上面的fetch进行配合的，collection在fetch到数据之后，会调用reset方法，所以你需要在collection中定义reset方法或者是绑定reset方法。这里使用绑定演示：
+这个方法的时候是要和上面的fetch进行配合的，collection在fetch到数据之后，默认情况会调用set方法(set方法会触发collection的add方法)，但是可以通过参数{reset: true}来手动触发reset。这时你就需要在collection中定义reset方法或者是绑定reset方法。这里使用绑定演示：
 
 .. code:: javascript
 
