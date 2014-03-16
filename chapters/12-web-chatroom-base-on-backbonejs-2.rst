@@ -21,9 +21,9 @@
         registed_time
     话题(topic):
         id
-        name
+        title
         created_time
-        owner_id
+        owner
     消息(message):
         id
         content

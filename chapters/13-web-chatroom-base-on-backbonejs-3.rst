@@ -312,7 +312,7 @@
 
     class Topic(DBManage):
         id = None
-        name = None
+        title = None
         created_time = None
         owner = None
 
