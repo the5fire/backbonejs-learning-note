@@ -50,11 +50,11 @@
 
     urls = (
         '/', 'IndexHandler',  # 返回首页
-        '/topic', 'TopicHandler',
+        '/user', 'TopicHandler',
         '/message', 'MessageHandler',
         '/registe', 'RegisteHandler',
-        '/login', 'LoginHandler',
-        '/logout', 'LogoutHandler',
+        '/user/login', 'LoginHandler',
+        '/user/logout', 'LogoutHandler',
     )
 
     app = web.application(urls, globals())
