@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>the5fire.com-backbone.js-Hello World</title>
+</head>
+<body>
+    <button id="check">新手报到</button>
+    <ul id="world-list">
+    </ul>
+    <a href="http://www.the5fire.com">更多教程</a>
+    <script src="static/lib/sea-debug.js" id="seajsnode"></script>
+    <script>
+    // Set configuration
+    seajs.config({
+        base: './static',
+        alias: {
+            "jquery": "lib/jquery",   // 改造过的jquery
+            "underscore": "lib/underscore",  //同上
+            "backbone": "lib/backbone", //同上
+        },
+    });
+
+    seajs.use('main');
+    </script>
+</body>
+</html>
