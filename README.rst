@@ -50,7 +50,7 @@ Backbone.js入门教程第二版
 * 11  `前后端实战演练：Web聊天室-功能分析 <chapters/11-web-chatroom-base-on-backbonejs-1.rst>`_
 * 12  `前后端实战演练：Web聊天室-详细设计 <chapters/12-web-chatroom-base-on-backbonejs-2.rst>`_
 * 13  `前后端实战演练：Web聊天室-服务端开发 <chapters/13-web-chatroom-base-on-backbonejs-3.rst>`_
-* 14  前后端实战演练：Web聊天室-前端开发
+* 14  `前后端实战演练：Web聊天室-前端开发 <chapters/14-web-chatroom-base-on-backbonejs-4.rst>`_
 * 15  引入requirejs
 * 16  补充异常处理
 * 17  定制Backbonejs
