@@ -16,9 +16,82 @@
 
 按照AMD和CMD实现的两个可以用来做模块化的是库分别是：require.js和sea.js。从本章的题目可以知道我们这里主要把require.js引入我们的项目。 对于这两库我都做了一个简单的Demo，再看下面长篇代码之前，可以先感受下： `require.js Demo <../code/requirejs-demo>`_ 和 `sea.js Demo <../code/seajs-demo>`_ 。
 
-15.2 简单实用require.js
+15.2 简单使用require.js
 -----------------------------------
 
+要使用require.js其实非常简单，主要有三个部分：1. 页面引入require.js；2. 定义模块；3. 加载模块。我们以上面提到我做的那个demo为例：
+
+*首先* - 页面引入
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>the5fire.com-backbone.js-Hello World</title>
+    </head>
+    <body>
+        <button id="check">新手报到- requirejs版</button>
+        <ul id="world-list">
+        </ul>
+        <a href="http://www.the5fire.com">更多教程</a>
+        <script data-main="static/main.js" src="static/lib/require.js"></script>
+    </body>
+    </html>
+
+上面的script的data-main定义了入口文件，我们把配置项也放到了入口文件中。
+来看下入口文件:
+
+.. code:: javascript
+
+    require.config({
+        baseUrl: 'static/',
+        shim: {
+            underscore: {
+                exports: '_'
+            },
+        },
+        paths: {
+            jquery: 'lib/jquery',
+            underscore: 'lib/underscore',
+            backbone: 'lib/backbone'
+        }
+    });
+
+    require(['jquery', 'backbone', 'js/app'], function($, Backbone, AppView) {
+        var appView = new AppView();
+    });
+
+上面baseUrl部分指明了所有要加载模块的根路径，shim是指那些非AMD规范的库，paths相当于你js文件的别名，方便引入。
+
+后面的require就是入口了，加载完main.js后会执行这部分代码，这部分代码的意思是，加载 ``jquery`` 、 ``backbone`` 、 ``js/app`` （这个也可通过paths来定义别名），并把加载的内容传递到后面的function的参数中。o
+
+来看看js/app的定义。
+
+*定义模块*
+
+.. code:: javascript
+
+    // app.js
+    define(['jquery', 'backbone'], function($, Backbone) {
+        var AppView = Backbone.View.extend({
+            // blabla..bla
+        });
+        return AppView;
+    });
+
+    // 或者这种方式
+    define(function(require, exports, module) {
+        var $ = require('jquery');
+        var Backbone = require('backbone');
+
+        var AppView = Backbone.View.extend({
+            // blabla..bla
+        });
+        return AppView;
+    });
+
+这两种方式均可，最后需要返回你想暴露外面的对象。这个对象（AppView）会在其他模块中 ``require('js/app')`` 时加载，就像上面一样。
 
 
 15.3 拆分文件
