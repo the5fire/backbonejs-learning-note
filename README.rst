@@ -53,7 +53,7 @@ Backbone.js入门教程第二版
 * 14  `前后端实战演练：Web聊天室-前端开发 <chapters/14-web-chatroom-base-on-backbonejs-4.rst>`_
 * 15  `引入requirejs <chapters/15-import-requirejs.rst>`_
 * 16  `补充异常处理 <chapters/16-exception-in-backbone.rst>`_
-* 17  定制Backbonejs
+* 17  `定制Backbonejs <chapters/17-customize-backbonejs-sync.rst>`_
 * 18  再次总结的说
 * 19  Backbonejs相关资源
 
