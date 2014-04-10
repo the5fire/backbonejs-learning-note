@@ -78,3 +78,5 @@
 
 这样就ok了。看起来都是基本的东西。
 
+
+参考： `HTTP状态码 <http://zh.wikipedia.org/zh-cn/HTTP%E7%8A%B6%E6%80%81%E7%A0%81>`_
