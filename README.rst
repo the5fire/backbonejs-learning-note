@@ -54,9 +54,13 @@ Backbone.js入门教程第二版
 * 15  `引入requirejs <chapters/15-import-requirejs.rst>`_
 * 16  `补充异常处理 <chapters/16-exception-in-backbone.rst>`_
 * 17  `定制Backbonejs <chapters/17-customize-backbonejs-sync.rst>`_
-* 18  再次总结的说
-* 19  Backbonejs相关资源
+* 18  `再次总结的说 <chapters/18-backbone-summary.rst>`_
+* 19  `Backbonejs相关资源 <chapters/19-backbone-js-resource.rst>`_
 
 ``暂定目录如上 , 压力相当的山大``
+
+``压力解除``
+
+happy coding!!
 
 Backbonejs交流群：308466740
