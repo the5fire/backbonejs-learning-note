@@ -47,4 +47,4 @@
 **导航**
 
 * 上一章 10  `实战演练：扩展todos到Server端（backbonejs+webpy） <10-expand-todos-with-server.rst>`_
-* 下一章 12 `前后端实战演练：Web聊天室-详细设计<12-web-chatroom-base-on-backbonejs-2.rst>`_
+* 下一章 12 `前后端实战演练：Web聊天室-详细设计 <12-web-chatroom-base-on-backbonejs-2.rst>`_
