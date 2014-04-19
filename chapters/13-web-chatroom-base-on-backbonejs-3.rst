@@ -50,11 +50,13 @@
 
     urls = (
         '/', 'IndexHandler',  # 返回首页
-        '/user', 'TopicHandler',
+        '/topic', 'TopicHandler',
+        '/topic/(\d+)', 'TopicHandler',
         '/message', 'MessageHandler',
-        '/registe', 'RegisteHandler',
-        '/user/login', 'LoginHandler',
-        '/user/logout', 'LogoutHandler',
+        '/user', 'UserHandler',
+        '/user/(\d+)', 'UserHandler',
+        '/login', 'LoginHandler',
+        '/logout', 'LogoutHandler',
     )
 
     app = web.application(urls, globals())
@@ -93,6 +95,7 @@
 .. code:: python
 
     #coding:utf-8
+    import copy
     import json
     import hashlib
     import sqlite3
@@ -104,14 +107,15 @@
 
     session = web.config._session
 
+    CACHE_USER = {}
+
 
     def sha1(data):
         return hashlib.sha1(data).hexdigest()
 
 
     def bad_request(message):
-        result = json.dumps({'message': message})
-        raise web.HTTPError(status=400, data=result)
+        raise web.BadRequest(message=message)
 
 
     # 首页
@@ -121,7 +125,12 @@
             return render.index()
 
 
-    class RegisteHandler:
+    class UserHandler:
+        def GET(self):
+            # 获取当前登录的用户数据
+            user = session.user
+            return json.dumps(user)
+
         def POST(self):
             data = web.data()
             data = json.loads(data)
@@ -143,8 +152,12 @@
             except sqlite3.IntegrityError:
                 return bad_request('用户名已存在!')
 
+            user = User.get_by_id(user_id)
+            session.login = True
+            session.user = user
+
             result = {
-                'user_id': user_id,
+                'id': user_id,
                 'username': username,
             }
             return json.dumps(result)
@@ -173,23 +186,38 @@
 
 
     class LogoutHandler:
-        def POST(self):
+        def GET(self):
             session.login = False
             session.user = None
-            return json.dumps({"message": "success"})
+            session.kill()
+            return web.tempredirect('/#login')
 
 
     class TopicHandler:
-        def GET(self):
+        def GET(self, pk=None):
+            if pk:
+                topic = Topic.get_by_id(pk)
+                return json.dumps(topic)
+
             topics = Topic.get_all()
-            result = [t for t in topics]
+            result = []
+            for t in topics:
+                topic = dict(t)
+                try:
+                    user = CACHE_USER[t.owner_id]
+                except KeyError:
+                    user = User.get_by_id(t.owner_id)
+                    CACHE_USER[t.owner_id] = user
+                topic['owner_name'] = user.username
+                result.append(topic)
             return json.dumps(result)
 
         def POST(self):
+            if not session.user or not session.user.id:
+                return bad_request('请先登录！')
+
             data = web.data()
             data = json.loads(data)
-            if not session.user.id:
-                return bad_request('请先登录！')
 
             topic_data = {
                 "title": data.get('title'),
@@ -206,13 +234,13 @@
                 "id": topic_id,
                 "title": topic_data.get('title'),
                 "owner_id": session.user.id,
+                "owner_name": session.user.username,
                 "created_time": str(topic_data.get('created_time')),
             }
             return json.dumps(result)
 
         def PUT(self, obj_id=None):
-            data = web.data()
-            print data
+            pass
 
         def DELETE(self, obj_id=None):
             pass
@@ -225,7 +253,19 @@
                 messages = Message.get_by_topic(topic_id) or []
             else:
                 messages = Message.get_all()
-            result = [m for m in messages]
+
+            result = []
+            current_user_id = session.user.id
+            for m in messages:
+                try:
+                    user = CACHE_USER[m.user_id]
+                except KeyError:
+                    user = User.get_by_id(m.user_id)
+                    CACHE_USER[m.user_id] = user
+                message = dict(m)
+                message['user_name'] = user.username
+                message['is_mine'] = (current_user_id == user.id)
+                result.append(message)
             return json.dumps(result)
 
         def POST(self):
@@ -248,6 +288,7 @@
                 "user_id": session.user.id,
                 "user_name": session.user.username,
                 "created_time": str(message_data.get("created_time")),
+                "is_mine": True,
             }
             return json.dumps(result)
  
@@ -276,7 +317,6 @@
         @classmethod
         def get_by_id(cls, id):
             itertodo = db.select(cls.table(), where="id=$id", vars=locals())
-            # 参考：https://groups.google.com/forum/#!msg/webpy/PP81l8C5kbQ/90Hgx3HUqG0J
             return next(iter(itertodo), None)
 
 
@@ -328,7 +368,7 @@
         def get_by_topic(cls, topic_id):
             return db.select(cls.table(), where="topic_id=$topic_id", vars=locals())
 
-在操作的同时还是定义了模型的属性，不过目前并没有用的上，完成之后可能会进一步抽象。
+在操作的同时还是定义了模型的属性，不过目前并没有用的上，如果打算进一步抽象的话是要用到的。
 
 13.5 总结
 ---------------------------
@@ -337,3 +377,7 @@
 
 这个项目已经托管在github上了: `wechat <https://github.com/the5fire/wechat>`_ ，欢迎围观以及贡献代码。
 
+**导航**
+
+* 上一章 12  `前后端实战演练：Web聊天室-详细设计 <chapters/12-web-chatroom-base-on-backbonejs-2.rst>`_
+* 下一章 14  `前后端实战演练：Web聊天室-前端开发 <chapters/14-web-chatroom-base-on-backbonejs-4.rst>`_
