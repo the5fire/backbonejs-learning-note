@@ -53,20 +53,20 @@
 
 4. 用户登录::
 
-   /user/login/ [POST]
+   /login/ [POST]
 
 5. 用户登出::
 
-   /user/logout/ [POST]
+   /logout/ [GET]
 
 **话题管理**
 1. 话题列表::
 
-    /topic/ [GET]
+   /topic/ [GET]
     
 2. 创建话题::
 
-    /topic/ [POST]
+   /topic/ [POST]
 
 3. 查看具体话题(相对于进入消息列表)::
 
@@ -147,4 +147,4 @@
 **导航**
 
 * 上一章 11  `前后端实战演练：Web聊天室-功能分析 <chapters/11-web-chatroom-base-on-backbonejs-1.rst>`_
-* 下一章 13 前后端实战演练：Web聊天室-后端开发
+* 下一章 13  `前后端实战演练：Web聊天室-后端开发 <chapters/13-web-chatroom-base-on-backbonejs-3.rst>`_
