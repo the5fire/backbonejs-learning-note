@@ -3,7 +3,7 @@
 
 前面介绍了Model和Collection，基本上属于程序中静态的数据部分。这一节介绍Backbone中的router，属于动态的部分，见名之意，router——路由的意思，显然是能够控制url指向哪个函数的。具体是怎么做的一会通过几个实例来看看。
 
-在现在的单页应用中，所有的操作，内容都在一个页面上呈现，这意味着浏览器的url始终要定位到当前页面。那么一个页面中的左右的操作总不能都通过事件监听来完成，尤其是对于需要切换页面的场景以及需要分享、收藏固定链接的情况。因此就有了router，通过hash的方式（即#page）来完成。不过随着浏览器发展，大多数的浏览器已经可以通过history api来操控url的改变，可以直接使用 /page 来完成之前需要hash来完成的操作，这种方式看起来更为直观一些。下面提供过几个demo来切实体会一番。
+在现在的单页应用中，所有的操作、内容都在一个页面上呈现，这意味着浏览器的url始终要定位到当前页面。那么一个页面中的左右的操作总不能都通过事件监听来完成，尤其是对于需要切换页面的场景以及需要分享、收藏固定链接的情况。因此就有了router，通过hash的方式（即#page）来完成。不过随着浏览器发展，大多数的浏览器已经可以通过history api来操控url的改变，可以直接使用 /page 来完成之前需要hash来完成的操作，这种方式看起来更为直观一些。下面提供过几个demo来切实体会一番。
 
 4.1、一个简单的例子
 --------------------------------------------
@@ -36,7 +36,7 @@
 点击该链接时，便会触发defaultRouter这个方法。
 
 
-4.2、这个routes映射要怎么传参数呢
+4.2、这个routes映射要怎么传参数
 -----------------------------------------------------------
 
 看下面例子，立马你就知道了
@@ -76,8 +76,10 @@
 
         routes: {
             "/posts/:id" : "getPost",
-            "/download/*path": "downloadFile",  //对应的链接为<a href="#/download/user/images/hey.gif">download gif</a>
-            "/:route/:action": "loadView",      //对应的链接为<a href="#/dashboard/graph">Load Route/Action View</a>
+            //下面对应的链接为<a href="#/download/user/images/hey.gif">download gif</a>
+            "/download/*path": "downloadFile",
+            //下面对应的链接为<a href="#/dashboard/graph">Load Route/Action View</a>
+            "/:route/:action": "loadView",
             "*actions" : "defaultRoute"
         },
 
@@ -104,7 +106,7 @@
 
 4.3、手动触发router
 ----------------------------------
-上面的例子都是通过页面点击触发router到对应的方法上，在实际的使用中，还存在一种场景就是需要在某一个逻辑中触发某一个事件，就像是jquery中得trigger一样，下面的代码展示怎么手动触发router。
+上面的例子都是通过页面点击触发router到对应的方法上，在实际的使用中，还存在一种场景就是需要在某一个逻辑中触发某一个事件，就像是jQuery中得trigger一样，下面的代码展示怎么手动触发router。
 
 .. code:: javascript
 
