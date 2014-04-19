@@ -146,5 +146,5 @@
 
 **导航**
 
-* 上一章 11  `前后端实战演练：Web聊天室-功能分析 <chapters/11-web-chatroom-base-on-backbonejs-1.rst>`_
-* 下一章 13  `前后端实战演练：Web聊天室-后端开发 <chapters/13-web-chatroom-base-on-backbonejs-3.rst>`_
+* 上一章 11  `前后端实战演练：Web聊天室-功能分析 <11-web-chatroom-base-on-backbonejs-1.rst>`_
+* 下一章 13  `前后端实战演练：Web聊天室-后端开发 <13-web-chatroom-base-on-backbonejs-3.rst>`_

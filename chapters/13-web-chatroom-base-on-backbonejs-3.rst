@@ -379,5 +379,5 @@
 
 **导航**
 
-* 上一章 12  `前后端实战演练：Web聊天室-详细设计 <chapters/12-web-chatroom-base-on-backbonejs-2.rst>`_
-* 下一章 14  `前后端实战演练：Web聊天室-前端开发 <chapters/14-web-chatroom-base-on-backbonejs-4.rst>`_
+* 上一章 12  `前后端实战演练：Web聊天室-详细设计 <12-web-chatroom-base-on-backbonejs-2.rst>`_
+* 下一章 14  `前后端实战演练：Web聊天室-前端开发 <14-web-chatroom-base-on-backbonejs-4.rst>`_
