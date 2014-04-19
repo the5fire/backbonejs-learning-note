@@ -928,3 +928,8 @@
 具体的代码也可以到 `wechat <https://github.com/the5fire/wechat>`_ 中去看，在requirejs这个分支，代码中添加了socketio，但是对上面的介绍没有影响。
 
 
+
+**导航**
+
+* 上一章 14  `前后端实战演练：Web聊天室-前端开发 <14-web-chatroom-base-on-backbonejs-4.rst>`_
+* 下一章 16  `补充异常处理 <16-exception-in-backbone.rst>`_
