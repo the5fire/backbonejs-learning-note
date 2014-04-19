@@ -3,7 +3,7 @@
 
 在前两篇文章中，我们已经对这个todos的功能、数据模型以及各个模块的实现细节进行了分析，这篇文章我们要对前面的分析进行一个整合。
 
-首先让我们来回顾一下我们分析的流程：先对页面功能进行了分析，然后又分析了数据模型，最后又对view的功能和代码进行了详解。你是不是觉得这个分析里面少了点什么？没错，就知道经验丰富的你已经看出来了，这里面少了对于流程的分析。这篇文章就对整体流程进行分析。
+首先让我们来回顾一下我们分析的流程：1. 先对页面功能进行了分析；2. 然后又分析了数据模型；3. 最后又对view的功能和代码进行了详解。你是不是觉得这个分析里面少了点什么？没错，就知道经验丰富的你已经看出来了，这里面少了对于流程的分析。这篇文章就对整体流程进行分析。
 
 所以从我的分析中可以看的出来，我是先对各个原材料进行分析，然后再整体的分析（当然前提是我是理解流程的），这并不是分析代码的唯一方法，有时我也会采用跟着流程分析代码的方法。当然还有很多其他的分析方法，大家都有自己的套路嘛。
 
@@ -41,7 +41,7 @@
 
 注意其中的Todos.fetch()方法，前面说过，这个项目是在客户端保存数据，所以使用fetch方法并不会发送请求到服务器。另外在前面关于collection的单独讲解中我们也介绍了fetch执行完成之后，会调用set（默认）或者reset（需要手动设置 ``{reset: true}`` ）。所以在没有指明fetch的reset参数的情况下，backbonejs的Collection中的set方法会遍历Todos的内容并且调用add方法。
 
-在initialize中我们绑定了add到addOne上，因此在fetch的时候会backbonejs会帮我们调用addOne（其实也是在collection的set方法中）。和collection中的set类似的，我们可以自定义reset方法，自行来处理fetch到得数据，但是需要在fetch时手动添加reset参数。
+在initialize中我们绑定了add到addOne上，因此在fetch的时候会Backbonejs会帮我们调用addOne（其实也是在collection的set方法中）。和collection中的set类似的，我们可以自定义reset方法，自行来处理fetch到得数据，但是需要在fetch时手动添加reset参数。
 
 PS: 感谢网友指正
 
@@ -93,8 +93,8 @@ PS: 感谢网友指正
 
     //添加一个任务到页面id为todo-list的div/ul中
     addOne: function(todo) {
-      var view = new TodoView({model: todo});
-      this.$("#todo-list").append(view.render().el);
+        var view = new TodoView({model: todo});
+        this.$("#todo-list").append(view.render().el);
     },
 
 在里面实例化了一个TodoView类，前面我们说过，这个类是主管各个任务的显示的。具体代码就不细说了。
@@ -124,4 +124,4 @@ PS: 感谢网友指正
 **导航**
 
 * 上一章 07 `实战演练：todos分析（二）view的应用 <07-backbonejs-todos-2.rst>`_
-* 下一章 09  后端环境搭建：web.py的使用
+* 下一章 09  `后端环境搭建：web.py的使用 <09-intro-webpy.rst>`_
