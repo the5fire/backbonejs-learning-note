@@ -1,7 +1,7 @@
 第五章 Backbonejs中的View实践
 =======================================================================
 
-前面介绍了存放数据的Model和Collection以及对用户行为进行路由分发的Router（针对链接）。这一节终于可以往页面上放点东西来玩玩了。这节就介绍了Backbone中得view这个模块。Backbone的view是用来显示你的model中的数据到页面的，同时它也可用来监听DOM上的事件然后做出响应。但是这里要提一句的是，相比于Angularjs中model变化之后页面数据自动变化的特性，Backbone要手动来处理。至于这两种方式的对比，各有优劣，可以暂时不关心。
+前面介绍了存放数据的Model和Collection以及对用户行为进行路由分发的Router（针对链接）。这一节终于可以往页面上放点东西来玩玩了。这节就介绍了Backbone中得View这个模块。Backbone的View是用来显示你的model中的数据到页面的，同时它也可用来监听DOM上的事件然后做出响应。但是这里要提一句的是，相比于Angularjs中model变化之后页面数据自动变化的特性，Backbone要手动来处理。至于这两种方式的对比，各有优劣，可以暂时不关心。
 
 下面依然是通过几个示例来介绍下view的功能,首先给出页面的基本模板：
 
@@ -15,11 +15,11 @@
     <body>
         <div id="search_container"></div>
 
-    <script type="text/template" id="search_template">
-        <label><%= search_label %></label>
-        <input type="text" id="search_input" />
-        <input type="button" id="search_button" value="Search" />
-    </script>
+        <script type="text/template" id="search_template">
+            <label><%= search_label %></label>
+            <input type="text" id="search_input" />
+            <input type="button" id="search_button" value="Search" />
+        </script>
     <script src="http://the5fireblog.b0.upaiyun.com/staticfile/jquery-1.10.2.js"></script>
     <script src="http://the5fireblog.b0.upaiyun.com/staticfile/underscore.js"></script>
     <script src="http://the5fireblog.b0.upaiyun.com/staticfile/backbone.js"></script>
@@ -31,12 +31,12 @@
     </body>
     </html>
 
-5.1、一个简单的view
+5.1 一个简单的view
 --------------------------------------------
 
 .. code:: javascript
 
-    SearchView = Backbone.View.extend({ 
+    var SearchView = Backbone.View.extend({
         initialize: function(){ 
             alert('init a SearchView'); 
         } 
@@ -46,14 +46,14 @@
 是不是觉得很没有技术含量，所有的模块定义都一样。
 
 
-5.2、 el属性
+5.2 el属性
 -------------------------------------
 
 这个属性用来引用DOM中的某个元素，每一个Backbone的view都会有这么个属性，如果没有显示声明，Backbone会默认的构造一个，表示一个空的div元素。el标签可以在定义view的时候在属性中声明，也可以在实例化view的时候通过参数传递。
 
 .. code:: javascript
 
-    SearchView = Backbone.View.extend({
+    var SearchView = Backbone.View.extend({
         initialize: function(){
             alert('init a SearchView');
         }
@@ -65,7 +65,7 @@
 
 .. code:: javascript
 
-    SearchView = Backbone.View.extend({ 
+    var SearchView = Backbone.View.extend({
         initialize: function(){ 
         }, 
         render: function(context) {
@@ -85,7 +85,7 @@
 
 
 
-5.3、再来看view中event的使用
+5.3 再来看view中event的使用
 --------------------------------------------------------------------------
 页面上的操作除了可以由之前的router来处理之外，在一个view中定义元素，还以可以使用event来进行事件绑定。这里要注意的是在view中定义的dom元素是指你el标签所定义的那一部分dom节点，event进行事件绑定时会在该节点范围内查找。
 
@@ -93,7 +93,7 @@
 
 .. code:: javascript
 
-    SearchView = Backbone.View.extend({
+    var SearchView = Backbone.View.extend({
         el: "#search_container",
 
         initialize: function(){
@@ -123,7 +123,7 @@
 
 
 
-5.4、view中的模板
+5.4 View中的模板
 ----------------------------
 上面已经简单的演示了模板的用法，如果你用过django模板的话，你会发现模板差不多都是那么回事。上面只是简单的单个变量的渲染，那么逻辑部分怎么处理呢，下面来看下。
 
@@ -143,7 +143,7 @@
 
 .. code:: javascript
 
-    SearchView = Backbone.View.extend({
+    var SearchView = Backbone.View.extend({
 
         initialize: function(){
             var labels = ['label1', 'label2', 'label3'];
