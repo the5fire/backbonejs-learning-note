@@ -222,14 +222,16 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
     //服务器返回的结果样式应该是对应的json格式数据，同save时POST过去的格式。
 
     //不过接受服务器端返回的数据方法是这样的：
-    man1.fetch({url:'/man/',success:function(model,response){
+    man1.fetch({url:'/man/',
+        success:function(model,response){
             alert('success');
             //model为获取到的数据
             alert(model.get('name'));
         },error:function(){
             //当返回格式不正确或者是非json数据时，会执行此方法
             alert('error');
-    }});
+        }
+    });
 
 还有一点值得一提的是关于url和urlRoot的事情了，如果你设置了url，那么你的CRUD都会发送对应请求到这个url上，但是这样有一个问题，就是delete请求，发送了请求，但是却没有发送任何数据，那么你在服务器端就不知道应该删除哪个对象（记录），所以这里又一个urlRoot的概念，你设置了urlRoot之后，你发送PUT和DELETE请求的时候，其请求的url地址就是：/baseurl/[model.id]，这样你就可以在服务器端通过对url后面值的提取更新或者删除对应的对象（记录）
 
