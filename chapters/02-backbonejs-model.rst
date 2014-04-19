@@ -1,7 +1,7 @@
 第二章 Backbonejs中的Model实践
 =======================================================================
 
-上一章主要是通过简单的代码对backbonejs做了一个概括的展示，这一章开始从Model层说起，详细解释Backbonejs中的Model这个东西。
+上一章主要是通过简单的代码对Backbonejs做了一个概括的展示，这一章开始从Model层说起，详细解释Backbonejs中的Model这个东西。
 
 对于Model这一部分，其官网是这么说的：“Model是js应用的核心，包括基础的数据以及围绕着这些数据的逻辑：数据转换、验证、属性计算和访问控制”。这句话基本上高度概括了Model在一个项目中的作用。实际上，不仅仅是js应用，在任何以数据收集和处理的项目中Model都是很重要的一块内容。
 
@@ -25,10 +25,11 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
     <script src="http://the5fireblog.b0.upaiyun.com/staticfile/jquery-1.10.2.js"></script>
     <script src="http://the5fireblog.b0.upaiyun.com/staticfile/underscore.js"></script>
     <script src="http://the5fireblog.b0.upaiyun.com/staticfile/backbone.js"></script>
+    <script>
     (function ($) {
-    /**
-    *此处填充代码
-    **/
+        /**
+        *此处填充代码下面练习代码
+        **/
     })(jQuery);
     </script>
     </html> 
@@ -38,7 +39,7 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
 
 .. code:: javascript
 
-    Man = Backbone.Model.extend({
+    var Man = Backbone.Model.extend({
         initialize: function(){
             alert('Hey, you create me!');
         }
@@ -53,7 +54,7 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
 
 .. code:: javascript
 
-    Man = Backbone.Model.extend({
+    var Man = Backbone.Model.extend({
         initialize: function(){
             alert('Hey, you create me!');
         },
@@ -70,7 +71,7 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
 
 .. code:: javascript
 
-    Man = Backbone.Model.extend({
+    var Man = Backbone.Model.extend({
         initialize: function(){
             alert('Hey, you create me!');
         }
@@ -79,7 +80,7 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
     man.set({name:'the5fire',age:'10'});
     alert(man.get('name'));
 
-从这个对象的取值方式可以知道，属性在一个Model是以字典（或者类似字典）的方式存在的，第一种设定默认值的方式，只不过是实现了Backbonejavascript的defaults这个方法，或者是给defaults进行了赋值。
+从这个对象的取值方式可以知道，属性在一个Model是以字典（或者类似字典）的方式存在的，第一种设定默认值的方式，只不过是实现了Backbone的defaults这个方法，或者是给defaults进行了赋值。
 
 
 2.3 对象中的方法
@@ -87,7 +88,7 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
 
 .. code:: javascript
 
-    Man = Backbone.Model.extend({
+    var Man = Backbone.Model.extend({
         initialize: function(){
             alert('Hey, you create me!');
         },
@@ -112,7 +113,7 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
 
 .. code:: javascript
 
-    Man = Backbone.Model.extend({
+    var Man = Backbone.Model.extend({
         initialize: function(){
             alert('Hey, you create me!');
             //初始化时绑定监听
@@ -139,7 +140,7 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
 
 .. code:: javascript
 
-    Man = Backbone.Model.extend({
+    var Man = Backbone.Model.extend({
         initialize: function(){
             alert('Hey, you create me!');
             //初始化时绑定监听, change事件会先于validate发生
@@ -176,12 +177,12 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
 
 2.6 和服务器进行交互，对象的保存和获取
 ---------------------------------------------------
-首先需要声明的是，这个例子需要后端配合，可以在 ``code`` 目录中找到对应的py文件，需要webpy和mako这两个库。
+首先需要声明的是，这个例子需要后端配合，可以在 `code <../code>`_  目录中找到对应的py文件，需要webpy和mako这两个库。
 这里需要为对象定义一个url属性，调用save方法时会post对象的所有属性到server端，调用fetch方法是又会发送get请求到server端。接受数据和发送数据均为json格式:
 
 .. code:: javascript
 
-    Man = Backbone.Model.extend({
+    var Man = Backbone.Model.extend({
         url:'/man/',
         initialize: function(){
             alert('Hey, you create me!');
@@ -234,7 +235,7 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
 
 补充一点，就是关于服务器的异步操作都是通过Backbone.sync这个方法来完成的，调用这个方法的时候会自动的传递一个参数过去，根据参数向服务器端发送对应的请求。比如你save，backbone会判断你的这个对象是不是新的，如果是新创建的则参数为create，如果是已存在的对象只是进行了改变，那么参数就为update，如果你调用fetch方法，那参数就是read，如果是destory，那么参数就是delete。也就是所谓的CRUD ("create", "read", "update", or "delete")，而这四种参数对应的请求类型为POST，GET，PUT，DELETE。你可以在服务器根据这个request类型，来做出相应的CRUD操作。
 
-关于Backbone.sync在后面如果涉及到得话再来详细说说。
+关于Backbone.sync在后面会有如何自定义这一部分的章节。
 
 上面服务器端的代码在 ``code`` 下可以找到，基于webpy和mako的。
 
