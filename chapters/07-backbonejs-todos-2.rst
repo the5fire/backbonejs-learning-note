@@ -19,10 +19,10 @@ TodoView是和Model一对一的关系，在页面上一个View也就展示为一
 
     // 首先是创建一个全局的Todo的collection对象
 
-      var Todos = new TodoList;
+    var Todos = new TodoList;
 
-      // 先来看TodoView，作用是控制任务列表
-      var TodoView = Backbone.View.extend({
+    // 先来看TodoView，作用是控制任务列表
+    var TodoView = Backbone.View.extend({
 
         //下面这个标签的作用是，把template模板中获取到的html代码放到这标签中。
         tagName:  "li",
@@ -86,7 +86,7 @@ TodoView是和Model一对一的关系，在页面上一个View也就展示为一
         clear: function() {
             this.model.destroy();
         }
-      });
+    });
 
 7.3 AppView的代码分析
 --------------------------------
@@ -159,9 +159,9 @@ TodoView是和Model一对一的关系，在页面上一个View也就展示为一
         //生成一个新Todo的所有属性的字典
         newAttributes: function() {
             return {
-            content: this.input.val(),
-            order:   Todos.nextOrder(),
-            done:    false
+                content: this.input.val(),
+                order:   Todos.nextOrder(),
+                done:    false
             };
         },
 
@@ -201,9 +201,7 @@ TodoView是和Model一对一的关系，在页面上一个View也就展示为一
     <script type="text/template" id="search_template">
 
             <label><%= search_label %></label>
-
             <input type="text" id="search_input" />
-
             <input type="button" id="search_button" value="Search" />
 
     </script>
