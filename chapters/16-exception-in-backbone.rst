@@ -85,4 +85,4 @@
 **导航**
 
 * 上一章 15  `引入requirejs <15-import-requirejs.rst>`_
-* 下一章 17  `自定义Backbonejs <17-customeize-backbonejs-sync.rst>`_
+* 下一章 17  `自定义Backbonejs <17-customize-backbonejs-sync.rst>`_
