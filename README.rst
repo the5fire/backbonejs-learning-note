@@ -11,8 +11,6 @@ Backbone.js入门教程第二版
 百度阅读平台:
 
 .. image:: images/backbonejs-cover.jpg
-    width:176
-    heigth:234
 
 `百度阅读-Backbonejs入门教程第二版 <http://yuedu.baidu.com/ebook/b7f0eaa44afe04a1b171de01>`_
 
