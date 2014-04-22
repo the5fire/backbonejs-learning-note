@@ -5,6 +5,17 @@ Backbone.js入门教程第二版
 * blog: http://the5fire.com
 * 制作日期：2013-08-05
 
+电子版
+-----------------------------
+
+百度阅读平台:
+
+.. image:: http://the5fireblog.b0.upaiyun.com/staticfile/backbonejs-cover.jpg
+    width:176
+    heigth:234
+
+`百度阅读-Backbonejs入门教程第二版 <http://yuedu.baidu.com/ebook/b7f0eaa44afe04a1b171de01>`_
+
 关于
 ------------------------
 

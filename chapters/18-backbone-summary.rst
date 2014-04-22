@@ -27,4 +27,4 @@ Backbonejs学习最大的难点在于你需要有以一个前端MVC框架的概�
 **导航**
 
 * 上一章 17  `自定义Backbonejs <17-customize-backbonejs-sync.rst>`_
-* 下一章 19  `Backbone资源整理 <19-backobne-js-resource.rst>`_
+* 下一章 19  `Backbone资源整理 <19-backbone-js-resource.rst>`_
