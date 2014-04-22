@@ -10,7 +10,7 @@ Backbone.js入门教程第二版
 
 百度阅读平台:
 
-.. image:: http://the5fireblog.b0.upaiyun.com/staticfile/backbonejs-cover.jpg
+.. image:: images/backbonejs-cover.jpg
     width:176
     heigth:234
 
