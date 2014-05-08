@@ -10,7 +10,7 @@ Backbone.js入门教程第二版
 
 百度阅读平台:
 
-.. image:: images/backbonejs-cover.png
+.. image:: http://hiphotos.baidu.com/baidu/pic/item/c2fdfc039245d688b20ee12da6c27d1ed21b242e.jpg
 
 `百度阅读-Backbonejs入门教程第二版 <http://yuedu.baidu.com/ebook/b7f0eaa44afe04a1b171de01>`_
 
