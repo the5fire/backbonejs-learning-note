@@ -144,6 +144,7 @@
 .. code:: javascript
 
     var SearchView = Backbone.View.extend({
+        el: "#search_container",
 
         initialize: function(){
             var labels = ['label1', 'label2', 'label3'];
