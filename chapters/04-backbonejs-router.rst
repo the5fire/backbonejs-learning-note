@@ -75,11 +75,11 @@
     var AppRouter = Backbone.Router.extend({
 
         routes: {
-            "/posts/:id" : "getPost",
+            "posts/:id" : "getPost",
             //下面对应的链接为<a href="#/download/user/images/hey.gif">download gif</a>
-            "/download/*path": "downloadFile",
+            "download/*path": "downloadFile",
             //下面对应的链接为<a href="#/dashboard/graph">Load Route/Action View</a>
-            "/:route/:action": "loadView",
+            ":route/:action": "loadView",
             "*actions" : "defaultRoute"
         },
 
