@@ -88,6 +88,7 @@ clone下来之后可以在example中找到todos文件夹，文件结构如下：
         // 设置Collection的模型为Todo
         model: Todo,
         //存储到浏览器，以todos-backbone命名的空间中
+        //此函数为Backbone插件提供 地址：https://github.com/jeromegn/Backbone.localStorage
         localStorage: new Backbone.LocalStorage("todos-backbone"),
 
         //获取所有已经完成的任务数组
