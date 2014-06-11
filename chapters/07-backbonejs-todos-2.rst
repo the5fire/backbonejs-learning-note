@@ -165,7 +165,9 @@ TodoView是和Model一对一的关系，在页面上一个View也就展示为一
             };
         },
 
-        //创建一个任务的方法，使用backbone.collection的create方法。将数据保存到localStorage,这是一个html5的js库。需要浏览器支持html5才能用。
+        //创建一个任务的方法，使用backbone.collection的create方法。
+        //将数据保存到localStorage,这是一个html5的js库。
+        //需要浏览器支持html5才能用。
         createOnEnter: function(e) {
             if (e.keyCode != 13) return;
             if (!this.input.val()) return;
