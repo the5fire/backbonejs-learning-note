@@ -80,9 +80,9 @@
         }, 
         render: function(context) { 
             //使用underscore这个库，来编译模板 
-            var template = _.template($("#search_template").html(), context); 
+            var template = _.template($("#search_template").html());
             //加载模板到对应的el属性中 
-            $(this.el).html(template);
+            $(this.el).html(template(context));
         },
 
     });
