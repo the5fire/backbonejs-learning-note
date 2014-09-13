@@ -59,7 +59,7 @@ clone下来之后可以在example中找到todos文件夹，文件结构如下：
 .. code:: javascript
 
     /**
-    *基本的Todo模型，属性为：content,order,done。
+    *基本的Todo模型，属性为：title,order,done。
     **/
     var Todo = Backbone.Model.extend({
         // 设置默认的属性
