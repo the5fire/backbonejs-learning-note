@@ -159,7 +159,7 @@ TodoView是和Model一对一的关系，在页面上一个View也就展示为一
         //生成一个新Todo的所有属性的字典
         newAttributes: function() {
             return {
-                content: this.input.val(),
+                title this.input.val(),
                 order:   Todos.nextOrder(),
                 done:    false
             };
