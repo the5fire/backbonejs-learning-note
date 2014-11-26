@@ -13,7 +13,7 @@
 
 因为是基于Python的框架，因此需要先安装Python环境，具体怎么装就不细说了，到http://python.org/download/ 安装python2.7.6这个版本。
 
-之后安装 `webpy <http://webpy.org/>`_ 官网的说明，通过命令安装webpy： ::
+之后按照 `webpy <http://webpy.org/>`_ 官网的说明，通过命令安装webpy： ::
     
     pip install web.py 
     或者
