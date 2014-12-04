@@ -16,7 +16,7 @@
 
     var Message = Backbone.Model.extend({
         urlRoot: '/message',
-        # 这么写, 打印要操作的实体, 调用系统的sync
+        // 这么写, 打印要操作的实体, 调用系统的sync
         sync: function(method, model, options){
             console.log(model);
             return Backbone.sync(method, model, options);
@@ -30,7 +30,7 @@
     var Messages = Backbone.Collection.extend({
         url: '/message',
         model: Message,
-        # 这么写, 打印要操作的实体, 调用系统的sync
+        // 这么写, 打印要操作的实体, 调用系统的sync
         sync: function(method, collection, options){
             console.log(collection);
             return Backbone.sync(method, collection, options);
