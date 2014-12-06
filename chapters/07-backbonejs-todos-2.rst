@@ -69,7 +69,8 @@ TodoView是和Model一对一的关系，在页面上一个View也就展示为一
         // 关闭编辑模式，并把修改内容同步到Model和界面
         close: function() {
             var value = this.input.val();
-            if (!value) { //无值内容直接从页面清除
+            if (!value) {
+                //无值内容直接从页面清除
                 this.clear();
             } else {
                 this.model.save({title: value});
@@ -172,20 +173,24 @@ TodoView是和Model一对一的关系，在页面上一个View也就展示为一
             if (e.keyCode != 13) return;
             if (!this.input.val()) return;
 
-            //创建一个对象之后会在backbone中动态调用Todos的add方法，该方法已绑定addOne。
+            //创建一个对象之后会在backbone中动态调用Todos的add方法
+            //该方法已绑定addOne。
             Todos.create({title: this.input.val()});
             this.input.val('');
         },
 
         //去掉所有已经完成的任务
         clearCompleted: function() {
-            // 调用underscore.js中的invoke方法，对过滤出来的todos调用destroy方法
+            // 调用underscore.js中的invoke方法
+            //对过滤出来的todos调用destroy方法
             _.invoke(Todos.done(), 'destroy');
             return false;
         },
 
         //处理页面点击标记全部完成按钮
-        //处理逻辑：如果标记全部按钮已选，则所有都完成，如果未选，则所有的都未完成。
+        //处理逻辑：
+        //    如果标记全部按钮已选，则所有都完成
+        //    如果未选，则所有的都未完成。
         toggleAllComplete: function () {
             var done = this.allCheckbox.checked;
             Todos.each(function (todo) { todo.save({'done': done}); });

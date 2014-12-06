@@ -60,8 +60,10 @@
     #添加todo相关的urls
     urls = (
         '/', 'index',  #返回首页
-        '/todo/(\d+)/', 'todo',  # 处理前端todo的请求,操作对应的todo
-        '/todo/', 'todos',  # 处理前端todo的整体请求,主要是获取所有的todo数据
+        # 处理前端todo的请求,操作对应的todo
+        '/todo/(\d+)/', 'todo',
+        # 处理前端todo的整体请求,主要是获取所有的todo数据
+        '/todo/', 'todos',
     )
 
 .. code:: python

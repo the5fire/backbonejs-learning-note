@@ -28,7 +28,8 @@
     var book2 = new Book({title : 'book2'});
     var book3 = new Book({title : 'book3'});
 
-    //var bookShelf = new BookShelf([book1, book2, book3]); //注意这里面是数组,或者使用add
+    //注意这里面是数组,或者使用add
+    //var bookShelf = new BookShelf([book1, book2, book3]);
 
     var bookShelf = new BookShelf;
 
@@ -53,7 +54,8 @@
 
 .. code:: javascript
 
-    bookShelf.url = '/books/'; //注意这里
+    //注意这里
+    bookShelf.url = '/books/';
     bookShelf.fetch({
         success:function(collection, response, options){
             collection.each(function(book){
@@ -71,7 +73,7 @@
 3.3 reset方法
 -----------------------------
 
-这个方法的时候是要和上面的fetch进行配合的，collection在fetch到数据之后，默认情况会调用set方法(set方法向collection里面添加新model，如果该model之前存在则会合并，于此同时会触发collection的add事件)，可以通过参数{reset: true}来手动触发reset，reset会整个清空collection重新添加所有model。这时你就需要在collection中定义reset方法或者是绑定reset方法。这里使用绑定演示：
+使用这个方法的时候是要和上面的fetch进行配合的，collection在fetch到数据之后，默认情况会调用set方法(set方法向collection里面添加新model，如果该model之前存在则会合并，与此同时会触发collection的add事件)，可以通过参数{reset: true}来手动触发reset，reset会整个清空collection重新添加所有model。这时你就需要在collection中定义reset方法或者是绑定reset方法。这里使用绑定演示：
 
 .. code:: javascript
 
@@ -85,7 +87,8 @@
     bookShelf.bind('reset',showAllBooks);
     bookShelf.url = '/books/'; //注意这里
     bookShelf.fetch({
-        reset: true,   // 需要主动传递reset，才会触发reset
+        // 需要主动传递reset，才会触发reset
+        reset: true,
         success:function(collection, response, options){
             collection.each(function(book){
                 alert(book.get('title'));

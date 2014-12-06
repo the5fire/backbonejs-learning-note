@@ -76,7 +76,10 @@
         }
     });
     var searchView = new SearchView({el: $("#search_container")});
-    searchView.render({search_label: "搜索渲染"});  //这个reander的方法可以放到view的构造函数中,这样初始化时就会自动渲染
+
+    //这个reander的方法可以放到view的构造函数中
+    //这样初始化时就会自动渲染
+    searchView.render({search_label: "搜索渲染"});
 
 运行页面之后，会发现script模板中的html代码已经添加到了我们定义的div中。
 
@@ -107,7 +110,8 @@
         },
 
         events:{  //就是在这里绑定的
-            'click input[type=button]' : 'doSearch'  //定义类型为button的input标签的点击事件，触发函数doSearch
+            //定义类型为button的input标签的点击事件，触发函数doSearch
+            'click input[type=button]' : 'doSearch'
 
         },
 

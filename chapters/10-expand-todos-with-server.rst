@@ -76,9 +76,12 @@ server部分，提供了前端浏览器需要访问的接口，同时也提供�
             
     urls = (
         '/', 'index',  #返回首页
-        '/todo', 'todo',  #  处理POST请求
-        '/todo/(\d*)', 'todo',  # 处理前端todo的请求,对指定记录进行操作
-        '/todos/', 'todos',  # 处理前端todo的请求，返回所有数据
+        #  处理POST请求
+        '/todo', 'todo',
+        # 处理前端todo的请求,对指定记录进行操作
+        '/todo/(\d*)', 'todo',
+        # 处理前端todo的请求，返回所有数据
+        '/todos/', 'todos',
     )
 
     app = web.application(urls, globals())
