@@ -16,7 +16,7 @@
 
 6.2 获取代码
 --------------------
-todos的代码这里下载：https://github.com/jashkenas/backbone/ ，建议自己clone一份到本本地。线上的地址是：http://backbonejs.org/examples/todos/index.html
+todos的代码这里下载：https://github.com/jashkenas/backbone/ ，建议自己clone一份到本地。线上的地址是：http://backbonejs.org/examples/todos/index.html
 
 clone下来之后可以在example中找到todos文件夹，文件结构如下：::
 
