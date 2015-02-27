@@ -21,7 +21,7 @@
             <input type="button" id="search_button" value="Search" />
         </script>
     <script src="http://the5fireblog.b0.upaiyun.com/staticfile/jquery-1.10.2.js"></script>
-    <script src="http://the5fireblog.b0.upaiyun.com/staticfile/underscore.js"></script>
+    <script src="http://the5fireblog.b0.upaiyun.com/staticfile/underscore-min.1.8.2.js"></script>
     <script src="http://the5fireblog.b0.upaiyun.com/staticfile/backbone.js"></script>
     <script>
     (function ($) {
@@ -70,9 +70,9 @@
         }, 
         render: function(context) {
             //使用underscore这个库，来编译模板
-            var template = _.template($("#search_template").html(), context);
+            var template = _.template($("#search_template").html());
             //加载模板到对应的el属性中
-            $(this.el).html(template);
+            $(this.el).html(template(context));
         }
     });
     var searchView = new SearchView({el: $("#search_container")});
@@ -104,9 +104,9 @@
         },
         render: function(context) {
             //使用underscore这个库，来编译模板
-            var template = _.template($("#search_template").html(), context);
+            var template = _.template($("#search_template").html());
             //加载模板到对应的el属性中
-            $(this.el).html(template);
+            $(this.el).html(template(context));
         },
 
         events:{  //就是在这里绑定的
@@ -157,9 +157,9 @@
 
         render: function(context) {
             //使用underscore这个库，来编译模板
-            var template = _.template($("#search_template").html(), context);
+            var template = _.template($("#search_template").html());
             //加载模板到对应的el属性中
-            $(this.el).html(template);
+            $(this.el).html(template(context));
         },
 
     });
