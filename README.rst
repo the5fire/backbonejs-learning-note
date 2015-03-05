@@ -10,6 +10,7 @@ Backbone.js入门教程第二版
 
 `《百度阅读-Backbonejs入门教程第二版》 <http://yuedu.baidu.com/ebook/b7f0eaa44afe04a1b171de01>`_
 `《多看阅读-Backbonejs入门实战》 <http://www.duokan.com/book/85197>`_
+`《Kindle商店-Backbonejs入门实战》 <http://www.amazon.cn/Backbone-js%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98-WEB%E7%AB%AFMVC%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8%E5%AE%9E%E6%88%98-the5fire-%E8%91%97/dp/B00U7CD88W/ref=sr_1_2>`_
 
 关于
 ------------------------
