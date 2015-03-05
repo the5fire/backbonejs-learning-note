@@ -8,11 +8,8 @@ Backbone.js入门教程第二版
 电子版
 -----------------------------
 
-百度阅读平台:
-
-.. image:: http://the5fireblog.b0.upaiyun.com/staticfile/cover.jpg
-
-`百度阅读-Backbonejs入门教程第二版 <http://yuedu.baidu.com/ebook/b7f0eaa44afe04a1b171de01>`_
+`《百度阅读-Backbonejs入门教程第二版》 <http://yuedu.baidu.com/ebook/b7f0eaa44afe04a1b171de01>`_
+`《多看阅读-Backbonejs入门实战》 <http://www.duokan.com/book/85197>`_
 
 关于
 ------------------------
