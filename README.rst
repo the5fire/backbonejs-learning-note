@@ -27,8 +27,9 @@ Backbone.js入门教程第二版
 
     看过第一本书，想给作者（the5fire）加把油的同学，可以提供赞助，赞助后你的名字会出现在这里: `关于赞助及赞助者名单 <sponsor.rst>`_
 
-    .. image:: https://img.alipay.com/sys/personalprod/style/mc/btn-index.png
-          :target: http://me.alipay.com/the5fire
+    支付宝扫码赞助:
+
+    .. image:: images/donate-alipay.png
 
 
 反馈
