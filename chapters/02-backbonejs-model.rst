@@ -228,7 +228,7 @@ Model这个概念在我的印象中是来自于MVC这个东西，Model在其中�
     man1.fetch();
     //第二种情况，在fetch中加入参数，如下：
     man1.fetch({url:'/man/'});
-    //这样，就会发送get请求到/getmans/这个url中，
+    //这样，就会发送get请求到/man/这个url中，
     //服务器返回的结果样式应该是对应的json格式数据，同save时POST过去的格式。
 
     //不过接受服务器端返回的数据方法是这样的：
