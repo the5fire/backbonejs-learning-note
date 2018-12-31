@@ -124,7 +124,7 @@
         app_router.navigate("/posts/" + 404, {trigger: true, replace: true});
     }
 
-对应着在页面添加一个a标签： ``<a href="#/manual">manual</a>`` 然后点击这个链接，便会触发posts/:id对应的方法。
+对应着在页面添加一个a标签： ``<a href="#/posts/404">manual</a>`` 然后点击这个链接，便会触发posts/:id对应的方法。
 
 这里需要解释的是navigate后面的两个参数。trigger表示触发事件，如果为false，则只是url变化，并不会触发事件，replace表示url替换，而不是前进到这个url，意味着启用该参数，浏览器的history不会记录这个变动。
 
